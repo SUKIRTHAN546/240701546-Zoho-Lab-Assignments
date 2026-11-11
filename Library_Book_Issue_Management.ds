@@ -1,0 +1,1680 @@
+/*
+ * Author       : sukirthanudhayakumar.2024849
+ * Generated on : 11-Nov-2026 09:10:01
+ * Version      : 1.0
+ */
+ application "Library Book Issue Management"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Book_Issue_Request_Form
+		{
+			displayname = "Book Issue Request Form"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Email_Address
+			(
+    			type = email
+				displayname = "Email Address"
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Member_Name
+			(
+    			type = name
+				displayname = "Member Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Hostel_Residential_Address
+			(
+    			type = address
+				displayname = "Hostel Residential Address"
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Contact_Number
+			(
+    			type = phonenumber
+				displayname = "Contact Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Purpose_Of_Borrowing
+			(
+    			type = textarea
+				displayname = "Purpose Of Borrowing"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Register_Roll_Number
+			(
+    			type = text
+				displayname = "Register Roll Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Preferred_Issue_Date
+			(
+    			type = date
+				displayname = "Preferred Issue Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Number_Of_Copies
+			(
+				type = number
+				displayname = "Number Of Copies"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Book_Category
+			(
+				type = picklist
+				displayname = "Book Category"
+				maxchar = 100
+				values = {"Choice 2","Choice 3","Computer Science & Engineering","Electronics & Communication","Mechanical Engineering","Management & Commerce","General Literature","Rare/ReferenceOnly"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Member_Type
+			(
+				type = radiobuttons
+				displayname = "Member Type"
+				maxchar = 100
+				values = {"Choice 2","Choice 3","Student","Faculty","Staff"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Due_Date
+			(
+    			type = date
+				displayname = "Due Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Books_Returned
+			(
+    			type = checkbox
+				displayname = "Books Returned"
+				initial value = false
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Issue_Status
+			(
+				type = picklist
+				displayname = "Issue Status"
+				maxchar = 100
+				values = {"Requested","Pending Approval","Approved","Issued","Returned","Overdue"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Preferred_Collection_Time
+			(
+    			type = time
+				displayname = "Preferred Collection Time"
+				timedisplayoptions = "hh:mm:ss" 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Subject_Areas_Of_Interest
+			(
+				type = list	
+				displayname = "Subject Areas Of Interest"
+				values = {"Artificial Intelligence","Data Science","Machine Learning","Software Engineering","Electronics","Management"}
+				height = 60px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Agree_To_Library_Rules
+			(
+				type = checkboxes	
+				displayname = "Agree To Library Rules"
+				values = {"I agree to the library rules and return policy"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Ebook_Reference_URL
+			(
+    			type = url
+				displayname = "Ebook Reference URL"
+				enable  linkname
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_Cover_Image
+			(
+    			type = image
+				displayname = "Book Cover Image"
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Late_Fee_Waiver_Percent
+			(
+    			type = percentage
+				displayname = "Late Fee Waiver Percent"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Fine_Amount_Due
+			(
+				displayname = "Fine Amount Due"
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_Replacement_Price
+			(
+				type = decimal
+				displayname = "Book Replacement Price"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Request_Submitted_On
+			(
+    			type = datetime
+				displayname = "Request Submitted On"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Member_Digital_Signature
+			(
+    			type = signature
+				displayname = "Member Digital Signature"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Faculty_Recommendation_Upload
+			(
+    			type = upload file
+				displayname = "Faculty Recommendation Upload"
+				browse = local_drive
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Special_Request_Voice_Note
+			(
+     			type = audio
+				displayname = "Special Request Voice Note"
+    			duration=60
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Book_Review_Video
+			(
+    			type = video
+				displayname = "Book Review Video"
+    			duration=45
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Issue_Request_ID
+			(
+    			type = autonumber
+				displayname = "Issue Request ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Total_Fine_Payable
+			(
+				type = decimal
+				displayname = "Total Fine Payable"
+	 			row = 1
+	 			column = 1   
+				width = medium
+    			Formula_Properties
+    			(
+    						value =  input.Fine_Amount_Due - input.Fine_Amount_Due * input.Late_Fee_Waiver_Percent / 100
+    						visibility = true
+    			)
+			)
+			Book_Issue_QR_Code
+			(
+				type = qrcode
+				displayname = "Book Issue QR Code"
+				value = "${Issue_Request_ID}"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Requires_Home_Delivery
+			(
+    			type = checkbox
+				displayname = "Requires Home Delivery"
+				initial value = false
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Library_Rules_Display
+			(
+    			type = richtext
+				displayname = "Library Rules Display"
+				height = 200px
+				toolbar = enable
+				[
+					style, font-color, background-color, link, bullets-and-numbering, 
+					font-size : {1, 2, 3, 4, 5, 6, 7}
+				]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list Book_Issue_Request_Form_Report
+		{
+			displayName = "Book Issue Request Form Report"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Member_Name  as "Member Name"
+				Email_Address as "Email Address"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Hostel_Residential_Address  as "Hostel Residential Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Register_Roll_Number as "Register Roll Number"
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Number_Of_Copies as "Number Of Copies"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Ebook_Reference_URL as "Ebook Reference URL"
+				Book_Cover_Image as "Book Cover Image"
+				Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+				Fine_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Request_Submitted_On as "Request Submitted On"
+				Member_Digital_Signature as "Member Digital Signature"
+				Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+				Special_Request_Voice_Note as "Special Request Voice Note"
+				Book_Review_Video as "Book Review Video"
+				Issue_Request_ID as "Issue Request ID"
+				Total_Fine_Payable as "Total Fine Payable"
+				Book_Issue_QR_Code as "Book Issue QR Code"
+				Requires_Home_Delivery as "Requires Home Delivery"
+				Library_Rules_Display as "Library Rules Display"
+				Issue_Status as "Issue Status"
+				Due_Date as "Due Date"
+				Books_Returned as "Books Returned"
+			)
+		}
+		list All_Issue_Requests_List
+		{
+			displayName = "All Issue Requests List"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Email_Address as "Email Address"
+				Member_Name  as "Member Name"
+				Hostel_Residential_Address  as "Hostel Residential Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Register_Roll_Number as "Register Roll Number"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Number_Of_Copies as "Number Of Copies"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Ebook_Reference_URL as "Ebook Reference URL"
+				Book_Cover_Image as "Book Cover Image"
+				Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+				Fine_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Request_Submitted_On as "Request Submitted On"
+				Member_Digital_Signature as "Member Digital Signature"
+				Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+				Special_Request_Voice_Note as "Special Request Voice Note"
+				Book_Review_Video as "Book Review Video"
+				Issue_Request_ID as "Issue Request ID"
+				Total_Fine_Payable as "Total Fine Payable"
+				Book_Issue_QR_Code as "Book Issue QR Code"
+				Requires_Home_Delivery as "Requires Home Delivery"
+				Library_Rules_Display as "Library Rules Display"
+			)
+		}
+		spreadsheet Issue_Requests_Spreadsheet
+		{
+			displayName = "Issue Requests Spreadsheet"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Email_Address as "Email Address"
+				Member_Name  as "Member Name"
+				Hostel_Residential_Address  as "Hostel Residential Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Register_Roll_Number as "Register Roll Number"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Number_Of_Copies as "Number Of Copies"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Ebook_Reference_URL as "Ebook Reference URL"
+				Book_Cover_Image as "Book Cover Image"
+				Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+				Fine_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Request_Submitted_On as "Request Submitted On"
+				Member_Digital_Signature as "Member Digital Signature"
+				Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+				Special_Request_Voice_Note as "Special Request Voice Note"
+				Book_Review_Video as "Book Review Video"
+				Issue_Request_ID as "Issue Request ID"
+				Total_Fine_Payable as "Total Fine Payable"
+				Book_Issue_QR_Code as "Book Issue QR Code"
+				Requires_Home_Delivery as "Requires Home Delivery"
+				Library_Rules_Display as "Library Rules Display"
+			)
+		}
+		kanban Issue_Status_Kanban
+		{
+			displayName = "Issue Status Kanban"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Email_Address as "Email Address"
+				Member_Name  as "Member Name"
+				Hostel_Residential_Address  as "Hostel Residential Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Register_Roll_Number as "Register Roll Number"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Number_Of_Copies as "Number Of Copies"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Due_Date as "Due Date"
+				Books_Returned as "Books Returned"
+				Issue_Status as "Issue Status"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Ebook_Reference_URL as "Ebook Reference URL"
+				Book_Cover_Image as "Book Cover Image"
+				Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+				Fine_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Request_Submitted_On as "Request Submitted On"
+				Member_Digital_Signature as "Member Digital Signature"
+				Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+				Special_Request_Voice_Note as "Special Request Voice Note"
+				Book_Review_Video as "Book Review Video"
+				Issue_Request_ID as "Issue Request ID"
+				Total_Fine_Payable as "Total Fine Payable"
+				Book_Issue_QR_Code as "Book Issue QR Code"
+				Requires_Home_Delivery as "Requires Home Delivery"
+				Library_Rules_Display as "Library Rules Display"
+			)
+			options
+			(
+	 			display field = Issue_Status
+	 		)
+		}
+		calendar Due_Date_Calendar
+		{
+			displayName = "Due Date Calendar"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Email_Address as "Email Address"
+				Member_Name  as "Member Name"
+				Hostel_Residential_Address  as "Hostel Residential Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Register_Roll_Number as "Register Roll Number"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Number_Of_Copies as "Number Of Copies"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Due_Date as "Due Date"
+				Books_Returned as "Books Returned"
+				Issue_Status as "Issue Status"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Ebook_Reference_URL as "Ebook Reference URL"
+				Book_Cover_Image as "Book Cover Image"
+				Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+				Fine_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Request_Submitted_On as "Request Submitted On"
+				Member_Digital_Signature as "Member Digital Signature"
+				Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+				Special_Request_Voice_Note as "Special Request Voice Note"
+				Book_Review_Video as "Book Review Video"
+				Issue_Request_ID as "Issue Request ID"
+				Total_Fine_Payable as "Total Fine Payable"
+				Book_Issue_QR_Code as "Book Issue QR Code"
+				Requires_Home_Delivery as "Requires Home Delivery"
+				Library_Rules_Display as "Library Rules Display"
+			)
+			options
+			(
+				display field = Book_Category
+				start date = Due_Date
+			)
+		}
+		timeline Issue_Activity_Timeline
+		{
+			displayName = "Issue Activity Timeline"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Email_Address as "Email Address"
+				Member_Name  as "Member Name"
+				Hostel_Residential_Address  as "Hostel Residential Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Register_Roll_Number as "Register Roll Number"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Number_Of_Copies as "Number Of Copies"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Due_Date as "Due Date"
+				Books_Returned as "Books Returned"
+				Issue_Status as "Issue Status"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Ebook_Reference_URL as "Ebook Reference URL"
+				Book_Cover_Image as "Book Cover Image"
+				Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+				Fine_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Request_Submitted_On as "Request Submitted On"
+				Member_Digital_Signature as "Member Digital Signature"
+				Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+				Special_Request_Voice_Note as "Special Request Voice Note"
+				Book_Review_Video as "Book Review Video"
+				Issue_Request_ID as "Issue Request ID"
+				Total_Fine_Payable as "Total Fine Payable"
+				Book_Issue_QR_Code as "Book Issue QR Code"
+				Requires_Home_Delivery as "Requires Home Delivery"
+				Library_Rules_Display as "Library Rules Display"
+			)
+			options
+			(
+				display field = Member_Name
+				start date = Request_Submitted_On
+			)
+		}
+		map Member_Hostel_Map
+		{
+			displayName = "Member Hostel Map"
+			show all rows from Book_Issue_Request_Form    
+			(
+				Email_Address as "Email Address"
+				Member_Name  as "Member Name"
+				Hostel_Residential_Address  as "Hostel Residential Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Purpose_Of_Borrowing as "Purpose Of Borrowing"
+				Register_Roll_Number as "Register Roll Number"
+				Preferred_Issue_Date as "Preferred Issue Date"
+				Number_Of_Copies as "Number Of Copies"
+				Book_Category as "Book Category"
+				Member_Type as "Member Type"
+				Due_Date as "Due Date"
+				Books_Returned as "Books Returned"
+				Issue_Status as "Issue Status"
+				Preferred_Collection_Time as "Preferred Collection Time"
+				Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+				Agree_To_Library_Rules as "Agree To Library Rules"
+				Ebook_Reference_URL as "Ebook Reference URL"
+				Book_Cover_Image as "Book Cover Image"
+				Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+				Fine_Amount_Due as "Fine Amount Due"
+				Book_Replacement_Price as "Book Replacement Price"
+				Request_Submitted_On as "Request Submitted On"
+				Member_Digital_Signature as "Member Digital Signature"
+				Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+				Special_Request_Voice_Note as "Special Request Voice Note"
+				Book_Review_Video as "Book Review Video"
+				Issue_Request_ID as "Issue Request ID"
+				Total_Fine_Payable as "Total Fine Payable"
+				Book_Issue_QR_Code as "Book Issue QR Code"
+				Requires_Home_Delivery as "Requires Home Delivery"
+				Library_Rules_Display as "Library Rules Display"
+			)
+			options
+			(
+	 			display field = Hostel_Residential_Address
+	 		)
+		}
+	}
+
+
+
+
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+	customize
+	{
+		icon
+		{
+			text = "LBI"
+			background color = "theme"
+			foreground color = "#ffffff"
+		}
+	}
+
+	web
+	{
+		forms
+		{
+			form Book_Issue_Request_Form
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report Book_Issue_Request_Form_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Member_Name as "Member Name"
+								Email_Address as "Email Address"
+								Contact_Number as "Contact Number"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Register_Roll_Number as "Register Roll Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Number_Of_Copies as "Number Of Copies"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Member_Name as "Member Name"
+								Email_Address as "Email Address"
+								Contact_Number as "Contact Number"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Register_Roll_Number as "Register Roll Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Number_Of_Copies as "Number Of Copies"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+								Issue_Status as "Issue Status"
+								Due_Date as "Due Date"
+								Books_Returned as "Books Returned"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Issue_Requests_List
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Number_Of_Copies as "Number Of Copies"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Issue_Requests_Spreadsheet
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -3
+						datablock1
+						(
+							layout type = -3
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Number_Of_Copies as "Number Of Copies"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Number_Of_Copies as "Number Of Copies"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Issue_Status_Kanban
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Number_Of_Copies as "Number Of Copies"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Due_Date as "Due Date"
+								Books_Returned as "Books Returned"
+								Issue_Status as "Issue Status"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Due_Date_Calendar
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Number_Of_Copies as "Number Of Copies"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Due_Date as "Due Date"
+								Books_Returned as "Books Returned"
+								Issue_Status as "Issue Status"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Issue_Activity_Timeline
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Number_Of_Copies as "Number Of Copies"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Due_Date as "Due Date"
+								Books_Returned as "Books Returned"
+								Issue_Status as "Issue Status"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Member_Hostel_Map
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Email_Address as "Email Address"
+								Member_Name as "Member Name"
+								Hostel_Residential_Address as "Hostel Residential Address"
+								Contact_Number as "Contact Number"
+								Purpose_Of_Borrowing as "Purpose Of Borrowing"
+								Register_Roll_Number as "Register Roll Number"
+								Preferred_Issue_Date as "Preferred Issue Date"
+								Number_Of_Copies as "Number Of Copies"
+								Book_Category as "Book Category"
+								Member_Type as "Member Type"
+								Due_Date as "Due Date"
+								Books_Returned as "Books Returned"
+								Issue_Status as "Issue Status"
+								Preferred_Collection_Time as "Preferred Collection Time"
+								Subject_Areas_Of_Interest as "Subject Areas Of Interest"
+								Agree_To_Library_Rules as "Agree To Library Rules"
+								Ebook_Reference_URL as "Ebook Reference URL"
+								Book_Cover_Image as "Book Cover Image"
+								Late_Fee_Waiver_Percent as "Late Fee Waiver Percent"
+								Fine_Amount_Due as "Fine Amount Due"
+								Book_Replacement_Price as "Book Replacement Price"
+								Request_Submitted_On as "Request Submitted On"
+								Member_Digital_Signature as "Member Digital Signature"
+								Faculty_Recommendation_Upload as "Faculty Recommendation Upload"
+								Special_Request_Voice_Note as "Special Request Voice Note"
+								Book_Review_Video as "Book Review Video"
+								Issue_Request_ID as "Issue Request ID"
+								Total_Fine_Payable as "Total Fine Payable"
+								Book_Issue_QR_Code as "Book Issue QR Code"
+								Requires_Home_Delivery as "Requires Home Delivery"
+								Library_Rules_Display as "Library Rules Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Book_Issue_Request_Form
+				{
+					displayname = "Book Issue Request Form"
+					icon = "design-bug"
+					form  Book_Issue_Request_Form
+					{
+						icon = "design-bug"
+					}
+					report Book_Issue_Request_Form_Report
+					{
+						icon = "tech-desktop"
+					}
+					report All_Issue_Requests_List
+					{
+						icon = "design-bug"
+					}
+					report Issue_Requests_Spreadsheet
+					{
+						icon = "design-bug"
+					}
+					report Issue_Status_Kanban
+					{
+						icon = "design-bug"
+					}
+					report Due_Date_Calendar
+					{
+						icon = "design-bug"
+					}
+					report Issue_Activity_Timeline
+					{
+						icon = "design-bug"
+					}
+					report Member_Hostel_Map
+					{
+						icon = "design-bug"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = lightred
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
